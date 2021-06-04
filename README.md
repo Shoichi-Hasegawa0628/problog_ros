@@ -7,11 +7,23 @@ The `problog_ros` is ros wrapper of problog.
 
 **Content:**
 
+*   [Seyup](#Setup)
 *   [Launch](#launch)
 *   [Files](#files)
+*   [References](#References)
+
+
+## Setup
+*   install Python3.6+  
+*   pip install problog
+
 
 ## Launch
 
 
 ## Files
 
+
+## References
+*   ProbLog official website: [https://dtai.cs.kuleuven.be/problog/](https://dtai.cs.kuleuven.be/problog/).
+*   ProbLog library (GitHub): [https://github.com/ML-KULeuven/problog](https://github.com/ML-KULeuven/problog).
