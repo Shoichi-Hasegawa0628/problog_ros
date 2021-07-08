@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #ProbLogのライブラリ
 from problog.program import PrologString
 from problog.core import ProbLog
@@ -5,13 +6,29 @@ from problog import get_evaluatable
 
 #事前知識
 p = PrologString("""
-0.3::exist(bottle,balcony).
-0.6::exist(bottle,entrance).
-0.2::exist(bottle,dining).
-0.6::exist(cup,living).
-0.8::exist(cup,living).
-query(exist(bottle,X)).
+place(living).
+place(bedroom).
+place(kitchen).
+place(toilet).
+
+food(orange).
+food(apple).
+
+doll(rabbit_doll). 			               
+doll(bear_doll).   			                               
+doll(monkey_doll).			                               
+
+0.4 :: exist(rabbit_doll, living).                         
+0.3 :: exist(rabbit_doll, bedroom).	                        
+0.15 :: exist(rabbit_doll, kitchen).	                   
+0.15 :: exist(rabbit_doll,toilet ).	                        
+
+same_group(X, rabbit_doll) :- doll(X).
+0.5 :: exist(X, rabbit_doll, Y) :- same_group(X, rabbit_doll), exist(rabbit_doll, Y).
+
+query(exist(bear_doll, rabbit_doll, Y)).         
 """)
+
 
 #推論結果の出力
 result = get_evaluatable().create_from(p).evaluate()
@@ -19,6 +36,7 @@ print (result)
 max_value = max(result.values())
 print(max_value)
 
+"""
 max_key = str(max(result, key=result.get))
 print(max_key)
 key_start = max_key.find(',')
@@ -41,3 +59,4 @@ with open(path_w) as f:
 list = {'entrance':0, 'living':1, 'dining':2, 'kitchen':3}
 target_instance = list[target]
 print(target_instance)
+"""
