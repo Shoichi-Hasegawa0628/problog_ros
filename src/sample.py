@@ -5,6 +5,9 @@ from problog.core import ProbLog
 from problog import get_evaluatable
 
 #事前知識
+#a = " \"\"\"  a  \"\"\"  " #これをtextファイルか何かで推論モデルを読み込むことができれば、できそう？
+#print(a)
+
 p = PrologString("""
 place(living).
 place(bedroom).
@@ -36,14 +39,15 @@ print (result)
 max_value = max(result.values())
 print(max_value)
 
-"""
+
 max_key = str(max(result, key=result.get))
 print(max_key)
 key_start = max_key.find(',')
 key_goal = len(max_key)
-target_place = max_key[key_start+1 : key_goal-1]
+target_place = max_key[key_start+13 : key_goal-1]
 print(target_place)
 
+"""
 #対象の場所の語彙をtxtファイルへ書き出し
 path_w = "/root/HSR/catkin_ws/src/SpCoNavi/SIGVerse/planning/myfile.txt"
 f = open(path_w, 'w')
