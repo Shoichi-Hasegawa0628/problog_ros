@@ -1,0 +1,18 @@
+place(living).
+place(bedroom).
+place(kitchen).
+place(toilet).
+
+cup(green_cup). 			               
+cup(orange_cup).   			                               
+cup(blue_cup).			                               
+
+0.4 :: exist(green_cup, living).                         
+0.3 :: exist(green_cup, bedroom).	                        
+0.15 :: exist(green_cup, kitchen).	                   
+0.15 :: exist(green_cup,toilet ).	                        
+
+same_group(X, green_cup) :- cup(X).
+0.5 :: exist(X, green_cup, Y) :- same_group(X, green_cup), exist(green_cup, Y).
+
+query(exist(green_cup, green_cup, Y)).         
