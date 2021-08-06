@@ -7,7 +7,7 @@ The `problog_ros` is ros wrapper of problog.
 
 **Content:**
 
-*   [Seyup](#Setup)
+*   [Setup](#Setup)
 *   [Launch](#launch)
 *   [Files](#files)
 *   [References](#References)
