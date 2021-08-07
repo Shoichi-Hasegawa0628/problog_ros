@@ -12,7 +12,4 @@ doll(sheep_doll).
 0.15 :: exist(penguin_doll, kitchen).	                   
 0.15 :: exist(penguin_doll,toilet ).	                        
 
-same_group(X, penguin_doll) :- doll(X).
-0.5 :: exist(X, penguin_doll, Y) :- same_group(X, penguin_doll), exist(penguin_doll, Y).
-
-query(exist(penguin_doll, penguin_doll, Y)).         
+query(exist(penguin_doll, Y)).         

@@ -1,1 +1,1 @@
-data_path  = "../data/pig_doll.txt"
+DATASET_FOLDER  = "../data/"

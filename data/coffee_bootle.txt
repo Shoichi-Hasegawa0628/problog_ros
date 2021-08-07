@@ -12,7 +12,4 @@ bottle(muscat_bottle).
 0.15 :: exist(coffee_bottle, kitchen).	                   
 0.15 :: exist(coffee_bottle,toilet ).	                        
 
-same_group(X, coffee_bottle) :- bottle(X).
-0.5 :: exist(X, coffee_bottle, Y) :- same_group(X, coffee_bottle), exist(coffee_bottle, Y).
-
 query(exist(coffee_bottle, coffee_bottle, Y)).         
