@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# 入力された物体名から存在しやすい場所の名前を論理推論するコード
 
 from problog.program import PrologString
 from problog import get_evaluatable
@@ -10,13 +11,13 @@ from __init__ import *
 class LogicalInference():
 
   def __init__(self):
-    #rospy.Subscriber("/object_word", String, self.word_callback, queue_size=1)
+    rospy.Subscriber("/human_command", String, self.word_callback, queue_size=1)
 
-  #def word_callback(self, word):
+  def word_callback(self, word):
     # 推論モデルの読み込み
-    #object_name = word.data
-    #rospy.loginfo("object_name: ", object_name)
-    object_name = "penguin_doll"
+    object_name = word
+    rospy.loginfo("object_name: ", object_name)
+    #object_name = "penguin_doll"
     TXT_DATA = DATASET_FOLDER + object_name + ".txt"
     f = open(TXT_DATA, 'r')
     reasoning_data = f.readlines()
@@ -62,3 +63,4 @@ class LogicalInference():
 if __name__ == "__main__":
   rospy.init_node('problog_logical_inference')
   LogicalInference()
+  rospy.spin()
