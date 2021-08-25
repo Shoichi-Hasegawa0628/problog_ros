@@ -4,20 +4,21 @@
 
 from problog.program import PrologString
 from problog import get_evaluatable
-#import rospy
-#from std_msgs.msg import String
+import rospy
+from std_msgs.msg import String
 from __init__ import *
 
 class LogicalInference():
 
   def __init__(self):
-    #rospy.Subscriber("/human_command", String, self.word_callback, queue_size=1)
+    rospy.Subscriber("/human_command", String, self.word_callback, queue_size=1)
+    pass
 
-  #def word_callback(self, word):
+  def word_callback(self, word):
     # 推論モデルの読み込み
-    #object_name = word
-    #rospy.loginfo("object_name: ", object_name)
-    object_name = "penguin_doll"
+    object_name = word
+    rospy.loginfo("object_name: ", object_name)
+    #object_name = "penguin_doll"
     TXT_DATA = DATASET_FOLDER + object_name + ".txt"
     f = open(TXT_DATA, 'r')
     reasoning_data = f.readlines()
@@ -31,6 +32,8 @@ class LogicalInference():
     print (result)
     pre_prob = list(result.values())
     print(pre_prob)
+    
+    return result
 
     """
     max_value = max(result.values())
@@ -61,6 +64,6 @@ class LogicalInference():
     """
 
 if __name__ == "__main__":
-  #rospy.init_node('problog_logical_inference')
+  rospy.init_node('problog_logical_inference')
   LogicalInference()
-  #rospy.spin()
+  rospy.spin()
