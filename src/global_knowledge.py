@@ -2,6 +2,13 @@
 # -*- coding: utf-8 -*-
 # 入力された物体名から存在しやすい場所の名前を論理推論するコード
 
+## 必要なライブラリ (Melodic環境 (Python2系環境)で動作させる場合)
+# apt-get install python3-pip
+# python3 -m pip install problog
+# python3 -m pip install pyyaml
+# python3 -m pip install rospkg catkin_pkg
+
+
 from problog.program import PrologString
 from problog import get_evaluatable
 import rospy
@@ -12,14 +19,17 @@ class LogicalInference():
 
   def __init__(self):
     rospy.Subscriber("/human_command", String, self.word_callback, queue_size=1)
-    pass
 
   def word_callback(self, word):
     # 推論モデルの読み込み
-    object_name = word
-    rospy.loginfo("object_name: ", object_name)
+    object_name = word.data
+    #print(object_name)
+    #print(type(object_name))
+    #object_name = str(object_name)
+    #rospy.loginfo("object_name: ", object_name)
     #object_name = "penguin_doll"
     TXT_DATA = DATASET_FOLDER + object_name + ".txt"
+    #print(TXT_DATA)
     f = open(TXT_DATA, 'r')
     reasoning_data = f.readlines()
     reasoning_data = '\n'.join(reasoning_data)
@@ -28,12 +38,13 @@ class LogicalInference():
     p = PrologString(reasoning_data)
 
     # 推論結果の出力
+    
     result = get_evaluatable().create_from(p).evaluate()
     print (result)
     pre_prob = list(result.values())
     print(pre_prob)
     
-    return result
+    #return result
 
     """
     max_value = max(result.values())
