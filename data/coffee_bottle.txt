@@ -12,4 +12,4 @@ bottle(muscat_bottle).
 0.15 :: exist(coffee_bottle, kitchen).	                   
 0.15 :: exist(coffee_bottle,toilet ).	                        
 
-query(exist(coffee_bottle, coffee_bottle, Y)).         
+query(exist(coffee_bottle, Y)).         
