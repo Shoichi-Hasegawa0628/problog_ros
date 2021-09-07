@@ -9,7 +9,7 @@ bottle(muscat_bottle).
 
 0.4 :: exist(coffee_bottle, living).                         
 0.3 :: exist(coffee_bottle, bedroom).	                        
-0.15 :: exist(coffee_bottle, kitchen).	                   
-0.15 :: exist(coffee_bottle,toilet ).	                        
+0.2 :: exist(coffee_bottle, kitchen).	                   
+0.1 :: exist(coffee_bottle,toilet ).	                        
 
 query(exist(coffee_bottle, Y)).         

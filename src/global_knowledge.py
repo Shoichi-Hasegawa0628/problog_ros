@@ -28,6 +28,8 @@ from problog import get_evaluatable
 import rospy
 from std_msgs.msg import String
 from __init__ import *
+import csv
+DATASET_FOLDER = "/root/RULO/catkin_ws/src/problog_ros/data/"
 
 class LogicalInference():
 
@@ -41,6 +43,7 @@ class LogicalInference():
 
     # 推論モデルの読み込み
     object_name = word.data
+    #object_name = "pig_doll"
     TXT_DATA = DATASET_FOLDER + object_name + ".txt"
     f = open(TXT_DATA, 'r')
     reasoning_data = f.readlines()
@@ -51,12 +54,21 @@ class LogicalInference():
 
     # 推論結果の出力
     result = get_evaluatable().create_from(p).evaluate()
-    #print (result)
-    place_names_probs = {}
+    print("ProbLog result of reasoning\n")
+    print (result)
+    print("****************************************************************\n")
 
     # 推論した場所の単語と確率を辞書型に格納
     pre_prob = list(result.values())  # 場所の確率
-    
+
+    # 場所の単語一覧をロード
+    with open('../data/3LDK_01_w_index_1_0.csv', 'r') as f:
+      reader = csv.reader(f)
+      for row in reader:
+        pass
+      place_name_list = row
+
+    place_name_probs = [0, 0, 0, 0]
     count = 0                         # 場所の単語 (場所の単語が最高で7文字なのでこのコードで動作可能)
     for key in result.keys(): 
       key_goal =len(str(key))
@@ -65,15 +77,27 @@ class LogicalInference():
       if place_name.find(',') is not None:
         place_name = place_name[place_name.find(',') + 1 :]
 
-      place_names_probs[place_name] = pre_prob[count]
+      j = place_name_list.index(place_name)
+
+      # 現在のSpCoSLAM-MLDAとSpCoNaviの単語順番が違うため、特別処理
+      if j == 2:
+        j = 3
+        place_name_probs[j] = pre_prob[count]
+      elif j == 3:
+        j = 2
+        place_name_probs[j] = pre_prob[count]
+      else:
+        place_name_probs[j] = pre_prob[count]
       count += 1
 
-    print(place_names_probs)
-    return place_names_probs
-    
+    #print(place_name_probs)
+    place_name_probs = [float(i)/sum(place_name_probs) for i in place_name_probs]  #正規化
+    #print(sum(place_name_probs))
+    return place_name_probs
+
 
 if __name__ == "__main__":
   rospy.init_node('problog_logical_inference')
   l = LogicalInference()
   l.word_callback()
-  rospy.spin()
+  #rospy.spin()

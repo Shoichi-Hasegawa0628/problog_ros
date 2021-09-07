@@ -8,8 +8,8 @@ doll(pig_doll).
 doll(sheep_doll).			                               
 
 0.4 :: exist(penguin_doll, living).                         
-0.3 :: exist(penguin_doll, bedroom).	                        
-0.15 :: exist(penguin_doll, kitchen).	                   
-0.15 :: exist(penguin_doll,toilet ).	                        
+0.4 :: exist(penguin_doll, bedroom).	                        
+0.1 :: exist(penguin_doll, kitchen).	                   
+0.1 :: exist(penguin_doll,toilet ).	                        
 
 query(exist(penguin_doll, Y)).         

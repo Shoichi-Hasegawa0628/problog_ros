@@ -7,12 +7,12 @@ doll(penguin_doll).
 doll(pig_doll).   			                               
 doll(sheep_doll).			                               
 
-0.4 :: exist(penguin_doll, living).                         
-0.3 :: exist(penguin_doll, bedroom).	                        
-0.15 :: exist(penguin_doll, kitchen).	                   
-0.15 :: exist(penguin_doll,toilet ).	                        
+0.40 :: exist(penguin_doll, living).                         
+0.40 :: exist(penguin_doll, bedroom).	                        
+0.10 :: exist(penguin_doll, kitchen).	                   
+0.10 :: exist(penguin_doll,toilet ).	                         
 
 same_group(X, penguin_doll) :- doll(X).
-0.5 :: exist(X, penguin_doll, Y) :- same_group(X, penguin_doll), exist(penguin_doll, Y).
+exist(X, Y) :- same_group(X, penguin_doll), exist(penguin_doll, Y).
 
-query(exist(pig_doll, penguin_doll, Y)).         
+query(exist(pig_doll, Y)).         
