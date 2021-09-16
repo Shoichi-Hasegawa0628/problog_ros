@@ -7,10 +7,10 @@ cup(green_cup).
 cup(orange_cup).   			                               
 cup(blue_cup).			                               
 
-0.25 :: exist(green_cup, living).                         
+0.2 :: exist(green_cup, living).                         
 0.1 :: exist(green_cup, bedroom).	                        
 0.4 :: exist(green_cup, kitchen).	                   
-0.25 :: exist(green_cup,toilet ).	                        
+0.3 :: exist(green_cup,toilet ).	                        
 
 same_group(X, green_cup) :- cup(X).
 exist(X, Y) :- same_group(X, green_cup), exist(green_cup, Y).

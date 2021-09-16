@@ -8,8 +8,8 @@ bottle(fruits_bottle).
 bottle(muscat_bottle).			                               
 
 0.4 :: exist(coffee_bottle, living).                         
-0.3 :: exist(coffee_bottle, bedroom).	                        
-0.2 :: exist(coffee_bottle, kitchen).	                   
+0.2 :: exist(coffee_bottle, bedroom).	                        
+0.3 :: exist(coffee_bottle, kitchen).	                   
 0.1 :: exist(coffee_bottle,toilet ).	                     
 
 same_group(X, coffee_bottle) :- bottle(X).
