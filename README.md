@@ -5,8 +5,8 @@ The `problog_ros` is ros wrapper of problog.
 *   Maintainer: Shoichi Hasegawa ([hasegawa.shoichi@em.ci.ritsumei.ac.jp](mailto:hasegawa.shoichi@em.ci.ritsumei.ac.jp)).
 *   Author: Shoichi Hasegawa ([hasegawa.shoichi@em.ci.ritsumei.ac.jp](mailto:hasegawa.shoichi@em.ci.ritsumei.ac.jp)).
 
-**Content:**
 
+**Content:**
 * [Setup](#setup)
 * [Execution of program](#execution-of-program)
 * [Files](#files)
@@ -16,6 +16,7 @@ The `problog_ros` is ros wrapper of problog.
 ## Setup
 *   install Python3.6+  
 *   pip install problog
+
 
 ## Execution of program
 ~~~
