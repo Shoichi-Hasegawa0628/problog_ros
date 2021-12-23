@@ -2,25 +2,10 @@
 # -*- coding: utf-8 -*-
 # 入力された物体名から存在しやすい場所の名前を論理推論するコード
 
-######## 必要なライブラリ (Melodic環境 (Python2系環境)で動作させる場合) ########
-
-## /root/RULO/catkin_ws/srcの中で
-# git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc	
-# echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-# echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-# source ~/.bashrc
-
-## /root/RULO/catkin_ws/srcの中で
-# git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-# echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-# source ~/.bashrc
-
 # apt-get install python3-pip
 # python3 -m pip install problog
 # python3 -m pip install pyyaml
 # python3 -m pip install rospkg catkin_pkg
-
 ###############################################################################
 
 from problog.program import PrologString
