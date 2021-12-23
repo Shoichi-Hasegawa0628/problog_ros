@@ -1,0 +1,40 @@
+% fruits_juiceの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
+place(living).
+place(kitchen).
+place(bedroom).
+place(bathroom).
+
+%% coffee, muscat, fruits_juice(Name)はbottleという属性(Property)を持つ
+bottle(coffee).
+bottle(muscat).
+bottle(fruits_juice).
+
+% 確率的規則の定義
+%% coffeeはそれぞれの場所に決まった確率で存在している
+0.4444444444 :: exist(coffee, living).
+0.5151515152 :: exist(coffee, kitchen).
+0.0404040404 :: exist(coffee, bedroom).
+0 :: exist(coffee, bathroom).
+
+%% muscatはそれぞれの場所に決まった確率で存在している
+0.2142857143 :: exist(muscat, living).
+0.7321428571 :: exist(muscat, kitchen).
+0.05357142857 :: exist(muscat, bedroom).
+0 :: exist(muscat, bathroom).
+
+%% fruits_juiceはそれぞれの場所に決まった確率で存在している
+0.1929824561 :: exist(fruits_juice, living).
+0.7543859649 :: exist(fruits_juice, kitchen).
+0.05263157895 :: exist(fruits_juice, bedroom).
+0 :: exist(fruits_juice, bathroom).
+
+% 述語間の関係の定義
+%% bottleという属性を持つ任意X, muscatは任意Yに存在, coffeeも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- bottle(X), exist(muscat, Y), exist(coffee, Y).
+
+
+% coffeeはどこに存在する確率が高いか？
+query(exist(fruits_juice,Y)).

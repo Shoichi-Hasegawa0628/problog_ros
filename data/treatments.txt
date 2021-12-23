@@ -1,0 +1,40 @@
+% treatmentsの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
+place(living).
+place(kitchen).
+place(bedroom).
+place(bathroom).
+
+%% treatments, sponge, bath_slipper(Name)はbath_goodsという属性(Property)を持つ
+bath_goods(treatments).
+bath_goods(body_sponge).
+bath_goods(sponge).
+
+% 確率的規則の定義
+%% treatmentsはそれぞれの場所に決まった確率で存在している
+0 :: exist(treatments, living).
+0.01886792453 :: exist(treatments, kitchen).
+0.01886792453 :: exist(treatments, bedroom).
+0.9622641509 :: exist(treatments, bathroom).
+
+%% spongeはそれぞれの場所に決まった確率で存在している
+0 :: exist(sponge, living).
+0.01851851852 :: exist(sponge, kitchen).
+0 :: exist(sponge, bedroom).
+0.9814814815 :: exist(sponge, bathroom).
+
+%% bath_slipperはそれぞれの場所に決まった確率で存在している
+0.05172413793 :: exist(bath_slipper, living).
+0.05172413793 :: exist(bath_slipper, kitchen).
+0.1034482759 :: exist(bath_slipper, bedroom).
+0.7931034483 :: exist(bath_slipper, bathroom).
+
+% 述語間の関係の定義
+%% bath_goodsという属性を持つ任意X, spongeは任意Yに存在, bath_slipperも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- bath_goods(X), exist(sponge, Y), exist(bath_slipper, Y).
+
+
+% treatmentsはどこに存在する確率が高いか？
+query(exist(treatments,Y)).

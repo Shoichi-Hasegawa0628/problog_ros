@@ -1,0 +1,40 @@
+% pitcher_baseの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
+place(living).
+place(kitchen).
+place(bedroom).
+place(bathroom).
+
+%% plate, bowl, pitcher_base(Name)はtablewareという属性(Property)を持つ
+tableware(plate).
+tableware(bowl).
+tableware(pitcher_base).
+
+% 確率的規則の定義
+%% plateはそれぞれの場所に決まった確率で存在している
+0.275862069 :: exist(plate, living).
+0.7011494253 :: exist(plate, kitchen).
+0 :: exist(plate, bedroom).
+0.02298850575 :: exist(plate, bathroom).
+
+%% bowlはそれぞれの場所に決まった確率で存在している
+0.2133333333 :: exist(bowl, living).
+0.7466666667 :: exist(bowl, kitchen).
+0.02666666667 :: exist(bowl, bedroom).
+0.01333333333 :: exist(bowl, bathroom).
+
+%% pitcher_baseはそれぞれの場所に決まった確率で存在している
+0.275862069 :: exist(pitcher_base, living).
+0.5517241379 :: exist(pitcher_base, kitchen).
+0.1551724138 :: exist(pitcher_base, bedroom).
+0.01724137931 :: exist(pitcher_base, bathroom).
+
+% 述語間の関係の定義
+%% tablewareという属性を持つ任意X, bowlは任意Yに存在, plateも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- tableware(X), exist(bowl, Y), exist(plate, Y).
+
+
+% pitcher_baseはどこに存在する確率が高いか？
+query(exist(pitcher_base,Y)).

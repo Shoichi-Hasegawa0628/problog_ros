@@ -1,0 +1,36 @@
+% 物体の属性の定義
+%% living(Name)はlivingという属性(Property)を持つ
+living(living).
+kitchen(kitchen).
+bedroom(bedroom).
+toilet(toilet).
+
+%% penguin_doll(Name)はpenguinという属性(Property)を持つ
+penguin(penguin_doll).
+penguin(penguin_chair).
+doll(penguin_doll).
+toy(penguin_doll).
+penguin(penguin_pillow).
+
+% 確率的規則の定義
+%% penguin_dollはlivingに40%の確率で存在している
+0.4 :: exist(penguin_doll, living).
+0.15 :: exist(penguin_doll, kitchen).
+0.3 :: exist(penguin_doll, bedroom).
+0.15 :: exist(penguin_doll, toilet).
+
+%% penguin_chairはlivingに40%の確率で存在している
+0.4 :: exist(penguin_chair, living).
+0.15 :: exist(penguin_chair, kitchen).
+0.3 :: exist(penguin_chair, bedroom).
+0.15 :: exist(penguin_chair, toilet).
+
+
+% 述語間の関係の定義
+%% penguinという属性を持つ任意X, penguin_dollは任意Yに存在, penguin_chairも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- penguin(X), exist(penguin_doll, Y), exist(penguin_chair, Y).
+
+
+% penguin_pillowはどこに存在する確率が高いか？
+query(exist(penguin_pillow,Y)).

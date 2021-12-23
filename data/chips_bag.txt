@@ -1,0 +1,40 @@
+% chips_bagの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
+place(living).
+place(kitchen).
+place(bedroom).
+place(bathroom).
+
+%% cracker_box, pudding_box, chips_bag(Name)はsnackという属性(Property)を持つ
+snack(cracker_box).
+snack(pudding_box).
+snack(chips_bag).
+
+% 確率的規則の定義
+%% cracker_boxはそれぞれの場所に決まった確率で存在している
+0.3035714286 :: exist(cracker_box, living).
+0.6785714286 :: exist(cracker_box, kitchen).
+0.01785714286 :: exist(cracker_box, bedroom).
+0 :: exist(cracker_box, bathroom).
+
+%% pudding_boxはそれぞれの場所に決まった確率で存在している
+0.338028169 :: exist(pudding_box, living).
+0.6197183099 :: exist(pudding_box, kitchen).
+0.04225352113 :: exist(pudding_box, bedroom).
+0 :: exist(pudding_box, bathroom).
+
+%% chips_bagはそれぞれの場所に決まった確率で存在している
+0.4225352113 :: exist(chips_bag, living).
+0.5492957746 :: exist(chips_bag, kitchen).
+0.02816901408 :: exist(chips_bag, bedroom).
+0 :: exist(chips_bag, bathroom).
+
+% 述語間の関係の定義
+%% snackという属性を持つ任意X, pudding_boxは任意Yに存在, cracker_boxも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- snack(X), exist(pudding_box, Y), exist(cracker_box, Y).
+
+
+% chips_bagはどこに存在する確率が高いか？
+query(exist(chips_bag,Y)).

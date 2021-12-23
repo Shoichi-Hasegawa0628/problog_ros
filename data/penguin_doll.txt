@@ -1,15 +1,40 @@
+% penguin_dollの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
 place(living).
-place(bedroom).
 place(kitchen).
-place(toilet).
+place(bedroom).
+place(bathroom).
 
-doll(penguin_doll). 			               
-doll(pig_doll).   			                               
-doll(sheep_doll).			                               
+%% pig_doll, penguin_doll, sheep_doll(Name)はdollという属性(Property)を持つ
+doll(pig_doll).
+doll(penguin_doll).
+doll(sheep_doll).
 
-0.4 :: exist(penguin_doll, living).                         
-0.4 :: exist(penguin_doll, bedroom).	                        
-0.1 :: exist(penguin_doll, kitchen).	                   
-0.1 :: exist(penguin_doll,toilet ).	                        
+% 確率的規則の定義
+%% pig_dollはそれぞれの場所に決まった確率で存在している
+0.359375 :: exist(pig_doll, living).
+0 :: exist(pig_doll, kitchen).
+0.640625 :: exist(pig_doll, bedroom).
+0 :: exist(pig_doll, bathroom).
 
-query(exist(penguin_doll, Y)).         
+%% penguin_dollはそれぞれの場所に決まった確率で存在している
+0.3661971831 :: exist(penguin_doll, living).
+0 :: exist(penguin_doll, kitchen).
+0.6338028169 :: exist(penguin_doll, bedroom).
+0 :: exist(penguin_doll, bathroom).
+
+%% sheep_dollはそれぞれの場所に決まった確率で存在している
+0.3698630137 :: exist(sheep_doll, living).
+0 :: exist(sheep_doll, kitchen).
+0.6301369863 :: exist(sheep_doll, bedroom).
+0 :: exist(sheep_doll, bathroom).
+
+% 述語間の関係の定義
+%% dollという属性を持つ任意X, pig_dollは任意Yに存在, sheep_dollも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- doll(X), exist(pig_doll, Y), exist(sheep_doll, Y).
+
+
+% penguin_dollはどこに存在する確率が高いか？
+query(exist(penguin_doll,Y)).

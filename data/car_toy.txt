@@ -1,0 +1,40 @@
+% car_toyの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
+place(living).
+place(kitchen).
+place(bedroom).
+place(bathroom).
+
+%% airplane_toy, car_toy, truck_toy(Name)はvehicle_toyという属性(Property)を持つ
+vehicle_toy(airplane_toy).
+vehicle_toy(car_toy).
+vehicle_toy(truck_toy).
+
+% 確率的規則の定義
+%% airplane_toyはそれぞれの場所に決まった確率で存在している
+0.5111111111 :: exist(airplane_toy, living).
+0.04444444444 :: exist(airplane_toy, kitchen).
+0.4222222222 :: exist(airplane_toy, bedroom).
+0.02222222222 :: exist(airplane_toy, bathroom).
+
+%% car_toyはそれぞれの場所に決まった確率で存在している
+0.5897435897 :: exist(car_toy, living).
+0.02564102564 :: exist(car_toy, kitchen).
+0.358974359 :: exist(car_toy, bedroom).
+0.02564102564 :: exist(car_toy, bathroom).
+
+%% truck_toyはそれぞれの場所に決まった確率で存在している
+0.6 :: exist(truck_toy, living).
+0.05 :: exist(truck_toy, kitchen).
+0.325 :: exist(truck_toy, bedroom).
+0.025 :: exist(truck_toy, bathroom).
+
+% 述語間の関係の定義
+%% vehicle_toyという属性を持つ任意X, airplane_toyは任意Yに存在, truck_toyも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- vehicle_toy(X), exist(airplane_toy, Y), exist(truck_toy, Y).
+
+
+% car_toyはどこに存在する確率が高いか？
+query(exist(car_toy,Y)).

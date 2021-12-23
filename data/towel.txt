@@ -1,0 +1,40 @@
+% towelの事前知識
+% 物体の属性の定義
+%% living(Name)はplaceという属性(Property)を持つ
+place(living).
+place(kitchen).
+place(bedroom).
+place(bathroom).
+
+%% tooth_paste, cup, towel(Name)はtoiletriesという属性(Property)を持つ
+toiletries(tooth_paste).
+toiletries(cup).
+toiletries(towel).
+
+% 確率的規則の定義
+%% tooth_pasteはそれぞれの場所に決まった確率で存在している
+0 :: exist(tooth_paste, living).
+0.1 :: exist(tooth_paste, kitchen).
+0 :: exist(tooth_paste, bedroom).
+0.9 :: exist(tooth_paste, bathroom).
+
+%% cupはそれぞれの場所に決まった確率で存在している
+0.1366906475 :: exist(cup, living).
+0.2949640288 :: exist(cup, kitchen).
+0.1798561151 :: exist(cup, bedroom).
+0.3884892086 :: exist(cup, bathroom).
+
+%% towelはそれぞれの場所に決まった確率で存在している
+0.3106060606 :: exist(towel, living).
+0.4621212121 :: exist(towel, kitchen).
+0.1136363636 :: exist(towel, bedroom).
+0.1136363636 :: exist(towel, bathroom).
+
+% 述語間の関係の定義
+%% toiletriesという属性を持つ任意X, cupは任意Yに存在, tooth_pasteも任意Yに存在するならば,
+%% 任意Xは任意Yに存在する
+exist(X, Y) :- toiletries(X), exist(cup, Y), exist(tooth_paste, Y).
+
+
+% tooth_pasteはどこに存在する確率が高いか？
+query(exist(towel,Y)).
