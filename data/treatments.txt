@@ -31,10 +31,10 @@ bath_goods(sponge).
 0.7931034483 :: exist(bath_slipper, bathroom).
 
 % 述語間の関係の定義
-%% bath_goodsという属性を持つ任意X, spongeは任意Yに存在, bath_slipperも任意Yに存在するならば,
-%% 任意Xは任意Yに存在する
-exist(X, Y) :- bath_goods(X), exist(sponge, Y), exist(bath_slipper, Y).
+%% bath_goodsという属性を持つ任意X, 任意Xは任意Yに存在, spongeは任意Yに存在, bath_slipperも任意Yに存在するならば,
+%% 任意Xとspongeとbath_slipperは, 任意Yに存在する
+% exist(X, sponge, bath_slipper, Y) :- bath_goods(X), exist(X, Y), exist(sponge, Y), exist(bath_slipper, Y).
 
 
 % treatmentsはどこに存在する確率が高いか？
-query(exist(treatments,Y)).
+query(exist(treatments, Y)).

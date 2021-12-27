@@ -33,7 +33,7 @@ doll(sheep_doll).
 % 述語間の関係の定義
 %% dollという属性を持つ任意X, penguin_dollは任意Yに存在, pig_dollも任意Yに存在するならば,
 %% 任意Xは任意Yに存在する
-exist(X, Y) :- doll(X), exist(penguin_doll, Y), exist(pig_doll, Y).
+% exist(X, Y) :- doll(X), exist(penguin_doll, Y), exist(pig_doll, Y).
 
 
 % sheep_dollはどこに存在する確率が高いか？

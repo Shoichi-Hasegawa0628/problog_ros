@@ -33,7 +33,7 @@ bottle(fruits_juice).
 % 述語間の関係の定義
 %% bottleという属性を持つ任意X, coffeeは任意Yに存在, fruits_juiceも任意Yに存在するならば,
 %% 任意Xは任意Yに存在する
-exist(X, Y) :- bottle(X), exist(coffee, Y), exist(fruits_juice, Y).
+% exist(X, Y) :- bottle(X), exist(coffee, Y), exist(fruits_juice, Y).
 
 
 % coffeeはどこに存在する確率が高いか？

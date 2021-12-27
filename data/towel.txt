@@ -33,7 +33,7 @@ toiletries(towel).
 % 述語間の関係の定義
 %% toiletriesという属性を持つ任意X, cupは任意Yに存在, tooth_pasteも任意Yに存在するならば,
 %% 任意Xは任意Yに存在する
-exist(X, Y) :- toiletries(X), exist(cup, Y), exist(tooth_paste, Y).
+% exist(X, Y) :- toiletries(X), exist(cup, Y), exist(tooth_paste, Y).
 
 
 % tooth_pasteはどこに存在する確率が高いか？

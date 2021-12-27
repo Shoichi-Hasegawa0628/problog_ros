@@ -31,10 +31,10 @@ tableware(pitcher_base).
 0.01724137931 :: exist(pitcher_base, bathroom).
 
 % 述語間の関係の定義
-%% tablewareという属性を持つ任意X, bowlは任意Yに存在, pitcher_baseも任意Yに存在するならば,
-%% 任意Xは任意Yに存在する
-exist(X, Y) :- tableware(X), exist(bowl, Y), exist(pitcher_base, Y).
+%% tablewareという属性を持つ任意X, 任意XはYに存在, bowlは任意Yに存在, pitcher_baseも任意Yに存在するならば,
+%% 任意Xとbowlとpitcher_baseは任意Yに存在する
+% exist(X, Y) :- tableware(X), exist(X, Y), exist(bowl, Y), exist(pitcher_base, Y).
 
 
 % plateはどこに存在する確率が高いか？
-query(exist(plate,Y)).
+query(exist(plate, Y)).

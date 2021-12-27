@@ -13,27 +13,27 @@ doll(sheep_doll).
 
 % 確率的規則の定義
 %% pig_dollはそれぞれの場所に決まった確率で存在している
-0.359375 :: exist(pig_doll, living).
-0 :: exist(pig_doll, kitchen).
-0.640625 :: exist(pig_doll, bedroom).
-0 :: exist(pig_doll, bathroom).
+0.359375 :: exist(pig_doll,living).
+0 :: exist(pig_doll,kitchen).
+0.640625 :: exist(pig_doll,bedroom).
+0 :: exist(pig_doll,bathroom).
 
 %% penguin_dollはそれぞれの場所に決まった確率で存在している
-0.3661971831 :: exist(penguin_doll, living).
-0 :: exist(penguin_doll, kitchen).
-0.6338028169 :: exist(penguin_doll, bedroom).
-0 :: exist(penguin_doll, bathroom).
+0.3661971831 :: exist(penguin_doll,living).
+0 :: exist(penguin_doll,kitchen).
+0.6338028169 :: exist(penguin_doll,bedroom).
+0 :: exist(penguin_doll,bathroom).
 
 %% sheep_dollはそれぞれの場所に決まった確率で存在している
-0.3698630137 :: exist(sheep_doll, living).
-0 :: exist(sheep_doll, kitchen).
-0.6301369863 :: exist(sheep_doll, bedroom).
-0 :: exist(sheep_doll, bathroom).
+0.3698630137 :: exist(sheep_doll,living).
+0 :: exist(sheep_doll,kitchen).
+0.6301369863 :: exist(sheep_doll,bedroom).
+0 :: exist(sheep_doll,bathroom).
 
 % 述語間の関係の定義
 %% dollという属性を持つ任意X, penguin_dollは任意Yに存在, sheep_dollも任意Yに存在するならば,
 %% 任意Xは任意Yに存在する
-exist(X, Y) :- doll(X), exist(penguin_doll, Y), exist(sheep_doll, Y).
+% exist(X,Y) :- doll(X), exist(penguin_doll,Y), exist(sheep_doll,Y).
 
 
 % pig_dollはどこに存在する確率が高いか？

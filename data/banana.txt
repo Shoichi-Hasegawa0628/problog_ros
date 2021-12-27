@@ -31,10 +31,10 @@ fruits(orange).
 0 :: exist(orange, bathroom).
 
 % 述語間の関係の定義
-%% fruitsという属性を持つ任意X, appleは任意Yに存在, orangeも任意Yに存在するならば,
-%% 任意Xは任意Yに存在する
-exist(X, Y) :- fruits(X), exist(apple, Y), exist(orange, Y).
+%% fruitsという属性を持つ任意X, 任意Xは任意Yに存在, appleは任意Yに存在, orangeも任意Yに存在するならば,
+%% 任意Xとappleとorangeは, 任意Yに存在する
+% exist(X, apple, orange, Y) :- fruits(X), exist(X, Y), exist(apple, Y), exist(orange, Y).
 
 
-% bananaはどこに存在する確率が高いか？
-query(exist(banana,Y)).
+% appleとbananaとorangeは, どこに存在する確率が高いか？
+query(exist(banana, Y)).

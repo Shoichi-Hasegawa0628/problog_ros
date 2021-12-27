@@ -33,7 +33,7 @@ vehicle_toy(truck_toy).
 % 述語間の関係の定義
 %% vehicle_toyという属性を持つ任意X, 任意Xは任意Yに存在, car_toyは任意Yに存在, truck_toyも任意Yに存在するならば,
 %% 任意Xとcar_toyとtruck_toyは, 任意Yに存在する
-exist(X, car_toy, truck_toy, Y) :- vehicle_toy(X), exist(X, Y), exist(car_toy, Y), exist(truck_toy, Y).
+%exist(X, car_toy, truck_toy, Y) :- vehicle_toy(X), exist(X, Y), exist(car_toy, Y), exist(truck_toy, Y).
 
-% airplane_toyとcar_toyとtruck_toyは, どこに存在する確率が高いか？
-query(exist(airplane_toy, car_toy, truck_toy, Y)).
+% airplane_toyはどこに存在する確率が高いか？
+query(exist(airplane_toy, Y)).

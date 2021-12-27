@@ -33,7 +33,7 @@ snack(chips_bag).
 % 述語間の関係の定義
 %% snackという属性を持つ任意X, pudding_boxは任意Yに存在, cracker_boxも任意Yに存在するならば,
 %% 任意Xは任意Yに存在する
-exist(X, Y) :- snack(X), exist(pudding_box, Y), exist(cracker_box, Y).
+% exist(X, Y) :- snack(X), exist(pudding_box, Y), exist(cracker_box, Y).
 
 
 % chips_bagはどこに存在する確率が高いか？
