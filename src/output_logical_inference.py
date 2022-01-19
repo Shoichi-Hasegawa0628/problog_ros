@@ -14,7 +14,7 @@ import rospy
 from std_msgs.msg import String
 from __init__ import *
 import csv
-DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/"
+DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/master_thesis/"
 
 class LogicalInference():
 
@@ -28,9 +28,11 @@ class LogicalInference():
     # 推論モデルの読み込み
     # object_name = word.data
     object_name = target_name
-    TXT_DATA = DATASET_FOLDER + object_name + ".txt"
+    TXT_DATA = DATASET_FOLDER + "logical_inference.txt"
     f = open(TXT_DATA, 'r')
     reasoning_data = f.readlines()
+    Query = "query(exist({}, Y)).\n".format(object_name)
+    reasoning_data.append(Query)
     reasoning_data = '\n'.join(reasoning_data)
 
     # 論理推論の実行
