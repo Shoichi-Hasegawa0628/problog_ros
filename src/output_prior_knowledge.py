@@ -14,9 +14,10 @@ import rospy
 from std_msgs.msg import String
 from __init__ import *
 import csv
+import os
 DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/master_thesis/"
 
-class LogicalInference():
+class OutputPriorKnowledge():
 
   def __init__(self):
     pass
@@ -48,7 +49,7 @@ class LogicalInference():
     pre_prob = list(result.values())  # 場所の確率
 
     # 場所の単語一覧をロード
-    with open('/root/HSR/catkin_ws/src/problog_ros/data/W_list.csv', 'r') as f:
+    with open(DATASET_FOLDER + 'W_list.csv', 'r') as f:
       reader = csv.reader(f)
       for row in reader:
         pass
@@ -83,11 +84,23 @@ class LogicalInference():
     place_name_probs = [float(i)/sum(place_name_probs) for i in place_name_probs]  #正規化
     # print(sum(place_name_probs))
     # print(place_name_probs)
+    self.save_data(place_name_probs, place_name_list, object_name)
     return place_name_probs
 
 
+  def save_data(self, prob, place_name_list, object_name):
+    # 推論結果をtxtでまとめて保存
+    FilePath = "/root/HSR/catkin_ws/src/spco2_boo_problog/data/" + str(object_name)
+    if not os.path.exists(FilePath):
+      os.makedirs(FilePath)
+    with open(FilePath + "/prior_knowledge_inference_result.txt", "w") as f:
+      f.write("Result of inference:\n")
+      f.write("{} = {}\n".format(place_name_list, prob))
+      f.close()
+
+
 if __name__ == "__main__":
-  rospy.init_node('problog_logical_inference')
-  l = LogicalInference()
-  l.word_callback()
+  rospy.init_node('output_prior_knowledge')
+  o = OutputPriorKnowledge()
+  # l.word_callback()
   #rospy.spin()
