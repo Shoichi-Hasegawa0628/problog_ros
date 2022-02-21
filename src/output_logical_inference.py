@@ -15,7 +15,7 @@ import os
 from std_msgs.msg import String
 from __init__ import *
 import csv
-DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/master_thesis/"
+DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/irex2022/"
 
 class LogicalInference():
 
@@ -55,20 +55,25 @@ class LogicalInference():
         pass
       place_name_list = row
 
-    place_name_probs = [0, 0, 0, 0]
+    place_name_probs = [0, 0, 0]
+    #print(place_name_list)
     count = 0                         # 場所の単語 (場所の単語が最高で7文字なのでこのコードで動作可能)
     ct = 1
     for key in result.keys():
+      #print(str(key))
       key_goal =len(str(key))
       #place_name = str(key)[key_goal - 7: key_goal - 1]
       if ct == 1:
         place_name = str(key)[key_goal-7 : key_goal-1]
+        #print(place_name)
       elif ct == 2:
         place_name = str(key)[key_goal - 8: key_goal - 1]
-      elif ct == 3:
-        place_name = str(key)[key_goal - 8: key_goal - 1]
+        #print(place_name)
       else:
-        place_name = str(key)[key_goal - 9: key_goal - 1]
+        place_name = str(key)[key_goal - 8: key_goal - 1]
+        #print(place_name)
+      # else:
+      #   place_name = str(key)[key_goal - 9: key_goal - 1]
       # print(place_name)
       # ct += 1
 
@@ -83,7 +88,7 @@ class LogicalInference():
     #print(place_name_probs)
     place_name_probs = [float(i)/sum(place_name_probs) for i in place_name_probs]  #正規化
     # print(sum(place_name_probs))
-    # print(place_name_probs)
+    #print(place_name_probs)
     self.save_data(place_name_probs, place_name_list, object_name)
     return place_name_probs
 
@@ -102,5 +107,5 @@ class LogicalInference():
 if __name__ == "__main__":
   rospy.init_node('problog_logical_inference')
   l = LogicalInference()
-  # l.word_callback()
+  #l.word_callback()
   #rospy.spin()
