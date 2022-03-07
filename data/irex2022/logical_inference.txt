@@ -38,15 +38,15 @@ bath_goods(bath_slipper).
 
 32.1/129.3::exist(X, living); 97.1/129.3::exist(X, kitchen); 0.1/129.3::exist(X, bedroom) :- fruits(X).
 
-47.1/127.3::exist(X, living); 77.1/127.3::exist(X, kitchen); 3.1/127.3::exist(X, bedroom) :- snack(X).
+41.1/127.3::exist(X, living); 82.1/127.3::exist(X, kitchen); 4.1/127.3::exist(X, bedroom) :- snack(X).
 
 55.1/156.3::exist(X, living); 94.1/156.3::exist(X, kitchen); 7.1/156.3::exist(X, bedroom) :- bottle(X).
 
-49.1/135.3::exist(X, living); 0.1/135.3::exist(X, kitchen); 86.1/135.3::exist(X, bedroom) :- doll(X).
+50.1/137.3::exist(X, living); 0.1/137.3::exist(X, kitchen); 87.1/137.3::exist(X, bedroom) :- doll(X).
 
 47.1/83.3::exist(X, living); 4.1/83.3::exist(X, kitchen); 32.1/83.3::exist(X, bedroom) :- vehicle_toy(X).
 
-41.1/122.3::exist(X, living); 66.1/122.3::exist(X, kitchen); 15.1/122.3::exist(X, bedroom) :- toiletries(X).
+60.1/202.3::exist(X, living); 102.1/202.3::exist(X, kitchen); 40.1/202.3::exist(X, bedroom) :- toiletries(X).
 
 3.1/14.3::exist(X, living); 4.1/14.3::exist(X, kitchen); 7.1/14.3::exist(X, bedroom) :- bath_goods(X).
 
@@ -78,11 +78,11 @@ bath_goods(bath_slipper).
 17.1/56.3  :: exist(cracker_box, living).
 38.1/56.3  :: exist(cracker_box, kitchen).
  1.1/56.3  :: exist(cracker_box, bedroom).
- 
-%% chips_bag
-30.1/71.3  :: exist(chips_bag, living).
-39.1/71.3  :: exist(chips_bag, kitchen).
- 2.1/71.3  :: exist(chips_bag, bedroom).
+
+%% pudding_box
+24.1/71.3  :: exist(pudding_box, living).
+44.1/71.3  :: exist(pudding_box, kitchen).
+ 3.1/71.3  :: exist(pudding_box, bedroom).
 
 %%%%% bottle (ボトル)
 %% coffee
@@ -100,11 +100,11 @@ bath_goods(bath_slipper).
 23.1/64.3  :: exist(pig_doll, living).
  0.1/64.3  :: exist(pig_doll, kitchen).
 41.1/64.3  :: exist(pig_doll, bedroom).
- 
-%% penguin_doll
-26.1/71.3  :: exist(penguin_doll, living).
- 0.1/71.3  :: exist(penguin_doll, kitchen).
-45.1/71.3  :: exist(penguin_doll, bedroom).
+
+%% sheep_doll
+27.1/73.3  :: exist(sheep_doll, living).
+ 0.1/73.3  :: exist(sheep_doll, kitchen).
+46.1/73.3  :: exist(sheep_doll, bedroom).
 
 %%%%% vehicle_toy (乗り物のおもちゃ)
 %% airplane_toy
@@ -118,10 +118,10 @@ bath_goods(bath_slipper).
 13.1/39.3  :: exist(truck_toy, bedroom).
 
 %%%%% toiletries (洗面用具)
-%% tooth_paste
- 0.1/5.3  :: exist(tooth_paste, living).
- 5.1/5.3   :: exist(tooth_paste, kitchen).
- 0.1/5.3   :: exist(tooth_paste, bedroom).
+%% cup
+ 19.1/85.3  :: exist(cup, living).
+ 41.1/85.3   :: exist(cup, kitchen).
+ 25.1/85.3   :: exist(cup, bedroom).
 
 %% towel
 41.1/117.3  :: exist(towel, living).
@@ -153,10 +153,10 @@ bath_goods(bath_slipper).
 0.1/0.3 :: exist(apple, bedroom).
 
 %%%%% snack (お菓子)
-%% pudding_box
-0.1/0.3 :: exist(pudding_box, living).
-0.1/0.3 :: exist(pudding_box, kitchen).
-0.1/0.3 :: exist(pudding_box, bedroom).
+%% chips_bag
+0.1/0.3 :: exist(chips_bag, living).
+0.1/0.3 :: exist(chips_bag, kitchen).
+0.1/0.3 :: exist(chips_bag, bedroom).
 
 %%%%% bottle (ボトル)
 %% muscat
@@ -165,10 +165,10 @@ bath_goods(bath_slipper).
 0.1/0.3 :: exist(muscat, bedroom).
 
 %%%%% doll (ぬいぐるみ)
-%% sheep_doll
-0.1/0.3 :: exist(sheep_doll, living).
-0.1/0.3 :: exist(sheep_doll, kitchen).
-0.1/0.3 :: exist(sheep_doll, bedroom).
+%% penguin_doll
+0.1/0.3 :: exist(penguin_doll, living).
+0.1/0.3 :: exist(penguin_doll, kitchen).
+0.1/0.3 :: exist(penguin_doll, bedroom).
 
 %%%%% vehicle_toy (乗り物のおもちゃ)
 %% car_toy
@@ -177,10 +177,10 @@ bath_goods(bath_slipper).
 0.1/0.3 :: exist(car_toy, bedroom).
 
 %%%%% toiletries (洗面用具)
-%% cup
-0.1/0.3 :: exist(cup, living).
-0.1/0.3 :: exist(cup, kitchen).
-0.1/0.3 :: exist(cup, bedroom).
+%% tooth_paste
+0.1/0.3 :: exist(tooth_paste, living).
+0.1/0.3 :: exist(tooth_paste, kitchen).
+0.1/0.3 :: exist(tooth_paste, bedroom).
 
 %%%%% bath_goods (バス用品)
 %% sponge
