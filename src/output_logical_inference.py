@@ -41,9 +41,9 @@ class LogicalInference():
 
     # 推論結果の出力
     result = get_evaluatable().create_from(p).evaluate()
-    #print("ProbLog result of reasoning\n")
-    #print (result)
-    #print("****************************************************************\n")
+    # print("ProbLog result of reasoning\n")
+    # print (result)
+    # print("****************************************************************\n")
 
     # 推論した場所の単語と確率を辞書型に格納
     pre_prob = list(result.values())  # 場所の確率
