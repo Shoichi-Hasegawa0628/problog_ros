@@ -49,26 +49,31 @@ class OutputPriorKnowledge():
     pre_prob = list(result.values())  # 場所の確率
 
     # 場所の単語一覧をロード
-    with open(DATASET_FOLDER + 'W_list.csv', 'r') as f:
-      reader = csv.reader(f)
-      for row in reader:
-        pass
-      place_name_list = row
+    # with open(DATASET_FOLDER + 'W_list.csv', 'r') as f:
+    #   reader = csv.reader(f)
+    #   for row in reader:
+    #     pass
+    #   place_name_list = row
 
-    place_name_probs = [0, 0, 0, 0]
+    place_name_list = ["living", "kitchen", "bedroom", "bathroom", "entrance", "study_room"]
+    place_name_probs = [0, 0, 0, 0, 0, 0]
     count = 0                         # 場所の単語 (場所の単語が最高で7文字なのでこのコードで動作可能)
     ct = 1
     for key in result.keys():
       key_goal =len(str(key))
       #place_name = str(key)[key_goal - 7: key_goal - 1]
       if ct == 1:
-        place_name = str(key)[key_goal-7 : key_goal-1]
+        place_name = str(key)[key_goal - 7: key_goal - 1]
       elif ct == 2:
         place_name = str(key)[key_goal - 8: key_goal - 1]
       elif ct == 3:
         place_name = str(key)[key_goal - 8: key_goal - 1]
-      else:
+      elif ct == 4:
         place_name = str(key)[key_goal - 9: key_goal - 1]
+      elif ct == 5:
+        place_name = str(key)[key_goal - 9: key_goal - 1]
+      else:
+        place_name = str(key)[key_goal - 11: key_goal - 1]
       # print(place_name)
       # ct += 1
 
@@ -102,5 +107,5 @@ class OutputPriorKnowledge():
 if __name__ == "__main__":
   rospy.init_node('output_prior_knowledge')
   o = OutputPriorKnowledge()
-  # l.word_callback()
+  # o.word_callback()
   #rospy.spin()
