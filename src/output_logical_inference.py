@@ -15,7 +15,7 @@ import os
 from std_msgs.msg import String
 from __init__ import *
 import csv
-DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/master_thesis/"
+DATASET_FOLDER = "/root/HSR/catkin_ws/src/problog_ros/data/ishiguro_demo0517/"
 
 class LogicalInference():
 
