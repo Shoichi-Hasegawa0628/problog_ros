@@ -7,7 +7,6 @@
 # python3 -m pip install pyyaml
 # python3 -m pip install rospkg catkin_pkg
 ###############################################################################
-
 from problog.program import PrologString
 from problog import get_evaluatable
 import rospy
@@ -107,5 +106,5 @@ class LogicalInference():
 if __name__ == "__main__":
   rospy.init_node('problog_logical_inference')
   l = LogicalInference()
-  # l.word_callback()
+  l.word_callback("flog_shaped_sponge")
   #rospy.spin()

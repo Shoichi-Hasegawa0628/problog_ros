@@ -105,7 +105,7 @@ class OutputPriorKnowledge():
 
 
 if __name__ == "__main__":
-  rospy.init_node('output_prior_knowledge')
+  # rospy.init_node('output_prior_knowledge')
   o = OutputPriorKnowledge()
-  # o.word_callback()
+  o.word_callback("flog_shaped_sponge")
   #rospy.spin()
