@@ -1,0 +1,250 @@
+% 常識的知識 + 論理推論
+%%%%%%%%%% 物体属性の定義 (is_a 関係) %%%%%%%%%%
+%%%%% "pig_dollはdollである"というように確定的に表現
+tableware(plate).
+tableware(bowl).
+tableware(pitcher_base).
+%
+fruits(banana).
+fruits(apple).
+fruits(orange).
+%
+snack(cracker_box).
+snack(pudding_box).
+snack(chips_bag).
+%
+bottle(coffee).
+bottle(muscat).
+bottle(fruits_juice).
+%
+doll(pig_doll).
+doll(sheep_doll).
+doll(penguin_doll).
+%
+vehicle_toy(airplane_toy).
+vehicle_toy(car_toy).
+vehicle_toy(truck_toy).
+%
+toiletries(tooth_paste).
+toiletries(towel).
+toiletries(cup).
+%
+bath_goods(treatments).
+bath_goods(sponge).
+bath_goods(bath_slipper).
+
+%%%%%%%%%% 物体の存在確率 (存在確率が既知の物体) %%%%%%%%%%
+%%%%% tableware (食器)
+%%% plate
+24.1/87.6  :: exist(plate, living).
+61.1/87.6  :: exist(plate, kitchen).
+ 0.1/87.6  :: exist(plate, bedroom).
+ 2.1/87.6  :: exist(plate, bathroom).
+ 0.1/87.6  :: exist(plate, entrance).
+ 0.1/87.6  :: exist(plate, study_room).
+
+%%% pitcher_base
+16.1/58.6  :: exist(pitcher_base, living).
+32.1/58.6  :: exist(pitcher_base, kitchen).
+ 9.1/58.6  :: exist(pitcher_base, bedroom).
+ 1.1/58.6  :: exist(pitcher_base, bathroom).
+ 0.1/58.6  :: exist(pitcher_base, entrance).
+ 0.1/58.6  :: exist(pitcher_base, study_room).
+
+%%%%% fruits (果物)
+%% banana
+17.1/65.6  :: exist(banana, living).
+48.1/65.6  :: exist(banana, kitchen).
+ 0.1/65.6  :: exist(banana, bedroom).
+ 0.1/65.6  :: exist(banana, bathroom).
+ 0.1/65.6  :: exist(banana, entrance).
+ 0.1/65.6  :: exist(banana, study_room).
+
+%% orange
+15.1/64.6  :: exist(orange, living).
+49.1/64.6  :: exist(orange, kitchen).
+ 0.1/64.6  :: exist(orange, bedroom).
+ 0.1/64.6  :: exist(orange, bathroom).
+ 0.1/64.6  :: exist(orange, entrance).
+ 0.1/64.6  :: exist(orange, study_room).
+
+%%%%% snack (お菓子)
+%% cracker_box
+17.1/56.6  :: exist(cracker_box, living).
+38.1/56.6  :: exist(cracker_box, kitchen).
+ 1.1/56.6  :: exist(cracker_box, bedroom).
+ 0.1/56.6  :: exist(cracker_box, bathroom).
+ 0.1/56.6  :: exist(cracker_box, entrance).
+ 0.1/56.6  :: exist(cracker_box, study_room).
+
+%% chips_bag
+30.1/71.6  :: exist(chips_bag, living).
+39.1/71.6  :: exist(chips_bag, kitchen).
+ 2.1/71.6  :: exist(chips_bag, bedroom).
+ 0.1/71.6  :: exist(chips_bag, bathroom).
+ 0.1/71.6  :: exist(chips_bag, entrance).
+ 0.1/71.6  :: exist(chips_bag, study_room).
+
+%%%%% bottle (ボトル)
+%% coffee
+44.1/99.6  :: exist(coffee, living).
+51.1/99.6  :: exist(coffee, kitchen).
+ 4.1/99.6  :: exist(coffee, bedroom).
+ 0.1/99.6  :: exist(coffee, bathroom).
+ 0.1/99.6  :: exist(coffee, entrance).
+ 0.1/99.6  :: exist(coffee, study_room).
+
+%% fruits_juice
+11.1/57.6  :: exist(fruits_juice, living).
+43.1/57.6  :: exist(fruits_juice, kitchen).
+ 3.1/57.6  :: exist(fruits_juice, bedroom).
+ 0.1/57.6  :: exist(fruits_juice, bathroom).
+ 0.1/57.6  :: exist(fruits_juice, entrance).
+ 0.1/57.6  :: exist(fruits_juice, study_room).
+
+%%%%% doll (ぬいぐるみ)
+%% pig_doll
+23.1/64.6  :: exist(pig_doll, living).
+ 0.1/64.6  :: exist(pig_doll, kitchen).
+41.1/64.6  :: exist(pig_doll, bedroom).
+ 0.1/64.6  :: exist(pig_doll, bathroom).
+ 0.1/64.6  :: exist(pig_doll, entrance).
+ 0.1/64.6  :: exist(pig_doll, study_room).
+
+%% penguin_doll
+26.1/71.6  :: exist(penguin_doll, living).
+ 0.1/71.6  :: exist(penguin_doll, kitchen).
+45.1/71.6  :: exist(penguin_doll, bedroom).
+ 0.1/71.6  :: exist(penguin_doll, bathroom).
+ 0.1/71.6  :: exist(penguin_doll, entrance).
+ 0.1/71.6  :: exist(penguin_doll, study_room).
+
+%%%%% vehicle_toy (乗り物のおもちゃ)
+%% airplane_toy
+23.1/45.6  :: exist(airplane_toy, living).
+ 2.1/45.6  :: exist(airplane_toy, kitchen).
+19.1/45.6  :: exist(airplane_toy, bedroom).
+ 1.1/45.6  :: exist(airplane_toy, bathroom).
+ 0.1/45.6  :: exist(airplane_toy, entrance).
+ 0.1/45.6  :: exist(airplane_toy, study_room).
+
+%% truck_toy
+24.1/40.6  :: exist(truck_toy, living).
+ 2.1/40.6  :: exist(truck_toy, kitchen).
+13.1/40.6  :: exist(truck_toy, bedroom).
+ 1.1/40.6  :: exist(truck_toy, bathroom).
+ 0.1/40.6  :: exist(truck_toy, entrance).
+ 0.1/40.6  :: exist(truck_toy, study_room).
+
+%%%%% toiletries (洗面用具)
+%% tooth_paste
+ 0.1/50.6  :: exist(tooth_paste, living).
+ 5.1/50.6  :: exist(tooth_paste, kitchen).
+ 0.1/50.6  :: exist(tooth_paste, bedroom).
+45.1/50.6  :: exist(tooth_paste, bathroom).
+ 0.1/50.6  :: exist(tooth_paste, entrance).
+ 0.1/50.6  :: exist(tooth_paste, study_room).
+
+%% towel
+41.1/132.6  :: exist(towel, living).
+61.1/132.6  :: exist(towel, kitchen).
+15.1/132.6  :: exist(towel, bedroom).
+15.1/132.6  :: exist(towel, bathroom).
+ 0.1/132.6  :: exist(towel, entrance).
+ 0.1/132.6  :: exist(towel, study_room).
+
+%%%%%% bath_goods (バス用品)
+%% treatments
+ 0.1/53.6  :: exist(treatments, living).
+ 1.1/53.6  :: exist(treatments, kitchen).
+ 1.1/53.6  :: exist(treatments, bedroom).
+51.1/53.6  :: exist(treatments, bathroom).
+ 0.1/53.6  :: exist(treatments, entrance).
+ 0.1/53.6  :: exist(treatments, study_room).
+
+%% bath_slipper
+ 3.1/58.6  :: exist(bath_slipper, living).
+ 3.1/58.6  :: exist(bath_slipper, kitchen).
+ 6.1/58.6  :: exist(bath_slipper, bedroom).
+46.1/58.6  :: exist(bath_slipper, bathroom).
+ 0.1/58.6  :: exist(bath_slipper, entrance).
+ 0.1/58.6  :: exist(bath_slipper, study_room).
+
+
+%%%%%%%%%% 物体の存在確率 (存在確率が未知の物体) %%%%%%%%%%
+%%%%% tableware (食器)
+%% bowl
+0.1/0.6 :: exist(bowl, living).
+0.1/0.6 :: exist(bowl, kitchen).
+0.1/0.6 :: exist(bowl, bedroom).
+0.1/0.6 :: exist(bowl, bathroom).
+0.1/0.6 :: exist(bowl, entrance).
+0.1/0.6 :: exist(bowl, study_room).
+
+%%%%% fruits (果物)
+%% apple
+0.1/0.6 :: exist(apple, living).
+0.1/0.6 :: exist(apple, kitchen).
+0.1/0.6 :: exist(apple, bedroom).
+0.1/0.6 :: exist(apple, bathroom).
+0.1/0.6 :: exist(apple, entrance).
+0.1/0.6 :: exist(apple, study_room).
+
+%%%%% snack (お菓子)
+%% pudding_box
+0.1/0.6 :: exist(pudding_box, living).
+0.1/0.6 :: exist(pudding_box, kitchen).
+0.1/0.6 :: exist(pudding_box, bedroom).
+0.1/0.6 :: exist(pudding_box, bathroom).
+0.1/0.6 :: exist(pudding_box, entrance).
+0.1/0.6 :: exist(pudding_box, study_room).
+
+%%%%% bottle (ボトル)
+%% muscat
+0.1/0.6 :: exist(muscat, living).
+0.1/0.6 :: exist(muscat, kitchen).
+0.1/0.6 :: exist(muscat, bedroom).
+0.1/0.6 :: exist(muscat, bathroom).
+0.1/0.6 :: exist(muscat, entrance).
+0.1/0.6 :: exist(muscat, study_room).
+
+%%%%% doll (ぬいぐるみ)
+%% sheep_doll
+0.1/0.6 :: exist(sheep_doll, living).
+0.1/0.6 :: exist(sheep_doll, kitchen).
+0.1/0.6 :: exist(sheep_doll, bedroom).
+0.1/0.6 :: exist(sheep_doll, bathroom).
+0.1/0.6 :: exist(sheep_doll, entrance).
+0.1/0.6 :: exist(sheep_doll, study_room).
+
+%%%%% vehicle_toy (乗り物のおもちゃ)
+%% car_toy
+0.1/0.6 :: exist(car_toy, living).
+0.1/0.6 :: exist(car_toy, kitchen).
+0.1/0.6 :: exist(car_toy, bedroom).
+0.1/0.6 :: exist(car_toy, bathroom).
+0.1/0.6 :: exist(car_toy, entrance).
+0.1/0.6 :: exist(car_toy, study_room).
+
+%%%%% toiletries (洗面用具)
+%% cup
+0.1/0.6 :: exist(cup, living).
+0.1/0.6 :: exist(cup, kitchen).
+0.1/0.6 :: exist(cup, bedroom).
+0.1/0.6 :: exist(cup, bathroom).
+0.1/0.6 :: exist(cup, entrance).
+0.1/0.6 :: exist(cup, study_room).
+
+%%%%% bath_goods (バス用品)
+%% sponge
+0.1/0.6 :: exist(sponge, living).
+0.1/0.6 :: exist(sponge, kitchen).
+0.1/0.6 :: exist(sponge, bedroom).
+0.1/0.6 :: exist(sponge, bathroom).
+0.1/0.6 :: exist(sponge, entrance).
+0.1/0.6 :: exist(sponge, study_room).
+
+
+
+
+
